@@ -1,0 +1,11 @@
+* {
+  font-family: Cascadia Code;
+  text-decoration: none;
+  background-color: #222222;
+  font-size: 1.6rem;
+  color: #ffffff;
+  list-style-type: none;
+}
+a {
+  color: #ffff00;
+}
