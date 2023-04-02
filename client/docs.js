@@ -1,5 +1,6 @@
 let btnAdd = document.querySelector('#btnAdd');
 btnAdd.addEventListener('click', addToDocs);
+let container = document.querySelector('#tblDocs');
 
 let btnProlificAuthor = document.querySelector('#btnProlificAuthor');
 btnProlificAuthor.addEventListener('click', findMostProlificAuthor);
@@ -12,89 +13,25 @@ btnNewest.addEventListener('click', orderByNewest);
 let btnOldest = document.querySelector('#btnOldest');
 btnOldest.addEventListener('click', orderByOldest);
 
-let docs = [
-  {
-    title: 'Cien años de soledad',
-    author: 'Gabriel García Márquez',
-    genre: 'Literatura',
-    year: 1967,
-  },
-  {
-    title: 'La evolución de las especies',
-    author: 'Charles Darwin',
-    genre: 'Ciencias naturales',
-    year: 1859,
-  },
-  {
-    title: 'La República',
-    author: 'Platón',
-    genre: 'Filosofía',
-    year: -380,
-  },
-  {
-    title: 'El Capital',
-    author: 'Karl Marx',
-    genre: 'Economía',
-    year: 1867,
-  },
-  {
-    title: 'El origen de las especies',
-    author: 'Charles Darwin',
-    genre: 'Ciencias naturales',
-    year: 1859,
-  },
-  {
-    title: 'El príncipe',
-    author: 'Maquiavelo',
-    genre: 'Política',
-    year: 1532,
-  },
-  {
-    title: 'La metamorfosis',
-    author: 'Franz Kafka',
-    genre: 'Literatura',
-    year: 1915,
-  },
-  {
-    title: 'La enseñanza de la filosofía',
-    author: 'Jacques Derrida',
-    genre: 'Educación',
-    year: 1981,
-  },
-  {
-    title: 'El Aleph',
-    author: 'Jorge Luis Borges',
-    genre: 'Literatura',
-    year: 1949,
-  },
-  {
-    title: 'La divina comedia',
-    author: 'Dante Alighieri',
-    genre: 'Literatura',
-    year: 1320,
-  },
-  {
-    title: 'El jardín de los senderos que se bifurcan',
-    author: 'Jorge Luis Borges',
-    genre: 'Literatura',
-    year: 1941,
-  },
-  {
-    title: 'La teoría general del empleo, el interés y el dinero',
-    author: 'John Maynard Keynes',
-    genre: 'Economía',
-    year: 1936,
-  },
-];
-updateDocs(docs);
+let docs;
+
+load();
+
+function generateId() {
+  let id = Math.floor(Math.random() * 1000000);
+  while (docs.some((doc) => doc.id === id)) {
+    id = Math.floor(Math.random() * 1000000);
+  }
+  return id;
+}
 
 function addToDocs() {
-  console.log('Función Agregar');
   let title = document.querySelector('#title').value;
   let author = document.querySelector('#author').value;
   let genre = document.querySelector('#genre').value;
   let year = document.querySelector('#year').value;
   let row = {
+    id: generateId(),
     title: title,
     author: author,
     genre: genre,
@@ -157,5 +94,20 @@ function updateDocs(docs) {
             </tr>
             `;
   }
-  document.querySelector('#tblDocs').innerHTML = html;
+  container.innerHTML = html;
+}
+async function load() {
+  container.innerHTML = '<h1>Loading...</h1>';
+  setTimeout(async () => {
+    try {
+      let response = await fetch('mock.json');
+      if (response.status) {
+        let t = await response.json();
+        docs = t.docs;
+        updateDocs(docs);
+      } else container.innerHTML = '<h1>404 Error - FailedURL!</h1>';
+    } catch (response) {
+      container.innerHTML = '<h1>500 Connection error</h1>';
+    }
+  }, 3000);
 }
