@@ -1,6 +1,6 @@
 let btnAdd = document.querySelector('#btnAdd');
 btnAdd.addEventListener('click', addToDocs);
-let container = document.querySelector('#tblDocs');
+let tblDocs = document.querySelector('#tblDocs');
 
 let btnProlificAuthor = document.querySelector('#btnProlificAuthor');
 btnProlificAuthor.addEventListener('click', findMostProlificAuthor);
@@ -13,7 +13,7 @@ btnNewest.addEventListener('click', orderByNewest);
 let btnOldest = document.querySelector('#btnOldest');
 btnOldest.addEventListener('click', orderByOldest);
 
-let docs;
+let docs = [];
 
 load();
 
@@ -94,20 +94,19 @@ function updateDocs(docs) {
             </tr>
             `;
   }
-  container.innerHTML = html;
+  tblDocs.innerHTML = html;
 }
 async function load() {
-  container.innerHTML = '<h1>Loading...</h1>';
-  setTimeout(async () => {
-    try {
-      let response = await fetch('mock.json');
-      if (response.status) {
-        let t = await response.json();
-        docs = t.docs;
-        updateDocs(docs);
-      } else container.innerHTML = '<h1>404 Error - FailedURL!</h1>';
-    } catch (response) {
-      container.innerHTML = '<h1>500 Connection error</h1>';
-    }
-  }, 3000);
+  tblDocs.innerHTML = '<h1>Loading...</h1>';
+
+  try {
+    let response = await fetch('/doc');
+    if (response.status) {
+      data = await response.json();
+      docs = data.docs;
+      updateDocs(docs);
+    } else tblDocs.innerHTML = '<h1>404 Error - FailedURL!</h1>';
+  } catch (response) {
+    tblDocs.innerHTML = '<h1>500 Connection error</h1>';
+  }
 }
