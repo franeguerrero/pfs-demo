@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Juan Pérez",
+    "mail": "juanperez@gmail.com",
+    "plan": "DEMO"
+  },
+  {
+    "id": 2,
+    "name": "María Gómez",
+    "mail": "mariagomez@yahoo.com.ar",
+    "plan": "BASIC"
+  },
+  {
+    "id": 3,
+    "name": "Miguel Rodríguez",
+    "mail": "miguelrodriguez@hotmail.com",
+    "plan": "PRO"
+  },
+  {
+    "id": 4,
+    "name": "Laura Fernández",
+    "mail": "laurafernandez@gmail.com",
+    "plan": "BASIC"
+  },
+  {
+    "id": 5,
+    "name": "Carlos González",
+    "mail": "carlosgonzalez@yahoo.com.ar",
+    "plan": "PRO"
+  },
+  {
+    "id": 6,
+    "name": "Luciana Díaz",
+    "mail": "lucianadiaz@hotmail.com",
+    "plan": "DEMO"
+  },
+  {
+    "id": 7,
+    "name": "Martín López",
+    "mail": "martinlopez@gmail.com",
+    "plan": "BASIC"
+  },
+  {
+    "id": 8,
+    "name": "Ana Silva",
+    "mail": "anasilva@yahoo.com.ar",
+    "plan": "PRO"
+  },
+  {
+    "id": 9,
+    "name": "Gustavo Castro",
+    "mail": "gustavocastro@hotmail.com",
+    "plan": "BASIC"
+  },
+  {
+    "id": 10,
+    "name": "Carolina Suárez",
+    "mail": "carolinasuarez@gmail.com",
+    "plan": "PRO"
+  }
+]

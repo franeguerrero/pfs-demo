@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentos</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgo="
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Documentos</h1>
+    <p>Ejemplo de arreglo de objetos en JS.</p>
+    <div id="response"></div>
+    <table>
+      <thead>
+        <td>Título</td>
+        <td>Autor</td>
+        <td>Tema</td>
+        <td>Año</td>
+      </thead>
+      <thead>
+        <td><input type="text" name="" value="" id="title" /></td>
+        <td><input type="text" name="" value="" id="author" /></td>
+        <td>
+          <select name="" id="genre">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="Artes visuales">Artes visuales</option>
+            <option value="Economía">Economía</option>
+            <option value="Educación">Educación</option>
+            <option value="Historia">Historia</option>
+            <option value="Derecho">Derecho</option>
+            <option value="Literatura">Literatura</option>
+            <option value="Filosofía">Filosofía</option>
+            <option value="Política">Política</option>
+            <option value="Ciencias naturales">Ciencias naturales</option>
+            <option value="Tecnología">Tecnología</option>
+          </select>
+        </td>
+        <td><input type="text" name="" value="" id="year" /></td>
+      </thead>
+      <thead>
+        <td colspan="4">
+          <button type="button" id="btnAdd">Agregar</button>
+          <button type="button" id="btnNewest">Más nuevos</button>
+          <button type="button" id="btnOldest">Más viejos</button>
+          <button type="button" id="btnProlificAuthor">
+            Autor con más documentos
+          </button>
+        </td>
+      </thead>
+      <tbody id="tblDocs"></tbody>
+    </table>
+    <script src="docs.js"></script>
+  </body>
+</html>
