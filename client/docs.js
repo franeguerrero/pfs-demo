@@ -13,6 +13,9 @@ btnNewest.addEventListener('click', orderByNewest);
 let btnOldest = document.querySelector('#btnOldest');
 btnOldest.addEventListener('click', orderByOldest);
 
+let btnFilter = document.querySelector('#btnFilter');
+btnFilter.addEventListener('click', filterByAuthor);
+
 let docs = [];
 
 load();
@@ -86,7 +89,7 @@ function updateDocs(docs) {
   let html = '';
   for (let r of docs) {
     html += `
-            <tr class="row">
+    <tr class="row">
             <td>${r.title}</td>
             <td>${r.author}</td>
             <td>${r.genre}</td>
@@ -102,11 +105,17 @@ async function load() {
   try {
     let response = await fetch('/doc');
     if (response.status) {
-      data = await response.json();
-      docs = data.docs;
+      docs = await response.json();
       updateDocs(docs);
     } else tblDocs.innerHTML = '<h1>404 Error - FailedURL!</h1>';
   } catch (response) {
     tblDocs.innerHTML = '<h1>500 Connection error</h1>';
   }
+}
+function filterByAuthor() {
+  let author = document.querySelector('#authorFilter').value;
+  let filteredDocs = docs.filter((doc) =>
+    doc.author.toLowerCase().includes(author.toLowerCase()),
+  );
+  updateDocs(filteredDocs);
 }
