@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehículos</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgo="
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Vehículos</h1>
+    <table>
+      <thead>
+        <td>Marca</td>
+        <td>Modelo</td>
+        <td>Patente</td>
+        <td>Año</td>
+        <td>Precio</td>
+        <td>Capacidad de carga</td>
+      </thead>
+      <thead>
+        <td><input type="text" name="" value="" id="brand" /></td>
+        <td><input type="text" name="" value="" id="model" /></td>
+        <td><input type="text" name="" value="" id="plate" /></td>
+        <td><input type="text" name="" value="" id="year" /></td>
+        <td><input type="text" name="" value="" id="price" /></td>
+        <td><input type="text" name="" value="" id="loadCapacity" /></td>
+      </thead>
+      <thead>
+        <td colspan="2">
+          <button type="button" id="btnAdd">Agregar</button>
+          <button type="button" id="btnTrucks">Camionetas</button>
+          <button type="button" id="btnCars">Autos</button>
+          <button type="button" id="btnShowAll">Mostrar Todos</button>
+        </td>
+      </thead>
+      <tbody id="tblVeh"></tbody>
+    </table>
+    <script src="veh.js"></script>
+  </body>
+</html>

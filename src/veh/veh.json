@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "plate": "ABC123",
+    "year": 2021,
+    "price": 25000
+  },
+  {
+    "id": 2,
+    "brand": "Ford",
+    "model": "F-150",
+    "plate": "DEF456",
+    "year": 2022,
+    "price": 35000,
+    "loadCapacity": 2000
+  },
+  {
+    "id": 3,
+    "brand": "Honda",
+    "model": "Civic",
+    "plate": "GHI789",
+    "year": 2021,
+    "price": 22000
+  },
+  {
+    "id": 4,
+    "brand": "Chevrolet",
+    "model": "Silverado",
+    "plate": "JKL012",
+    "year": 2022,
+    "price": 38000,
+    "loadCapacity": 3000
+  },
+  {
+    "id": 5,
+    "brand": "Nissan",
+    "model": "Sentra",
+    "plate": "MNO345",
+    "year": 2021,
+    "price": 20000
+  },
+  {
+    "id": 6,
+    "brand": "Ram",
+    "model": "1500",
+    "plate": "PQR678",
+    "year": 2022,
+    "price": 40000,
+    "loadCapacity": 2500
+  },
+  {
+    "id": 7,
+    "brand": "Mazda",
+    "model": "3",
+    "plate": "STU901",
+    "year": 2021,
+    "price": 23000
+  },
+  {
+    "id": 8,
+    "brand": "GMC",
+    "model": "Sierra",
+    "plate": "VWX234",
+    "year": 2022,
+    "price": 39000,
+    "loadCapacity": 3500
+  },
+  {
+    "id": 9,
+    "brand": "Kia",
+    "model": "Optima",
+    "plate": "YZA567",
+    "year": 2021,
+    "price": 21000
+  },
+  {
+    "id": 10,
+    "brand": "Dodge",
+    "model": "Challenger",
+    "plate": "BCD890",
+    "year": 2022,
+    "price": 35000
+  }
+]
