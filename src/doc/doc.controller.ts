@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { DocService } from './doc.service';
 import { Doc } from './doc.model';
 @Controller('doc')
@@ -18,5 +18,8 @@ export class DocController {
         let encodedAuthor = encodeURIComponent(author)
         return this.docService.getDocsByAuthor(encodedAuthor)
     }
-
+    @Post()
+    create(@Body() doc: Doc): string {
+        return this.docService.addDoc(doc);
+    }
 }

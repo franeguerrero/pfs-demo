@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { readFileSync } from 'fs';
+import { readFileSync, appendFileSync } from 'fs';
 import { Doc } from './doc.model'
 
 @Injectable()
@@ -40,4 +40,32 @@ export class DocService {
         }
         return docsByAuthor;
     }
+    public addDoc(newDoc: Doc): string {
+        let doc = new Doc(
+            newDoc.id,
+            newDoc.title,
+            newDoc.author,
+            newDoc.genre,
+            newDoc.year
+        );
+
+
+        if (
+            doc.getId() !== undefined &&
+            doc.getTitle() !== undefined &&
+            doc.getAuthor() !== undefined &&
+            doc.getGenre() !== undefined &&
+            doc.getYear() !== undefined
+        ) {
+            this.docList.push(doc);
+            appendFileSync(
+                '/home/franeguerrero/Prog/pfs-demo/src/doc/docs.csv',
+                `\n${doc.getId()};${doc.getTitle()};${doc.getAuthor()};${doc.getGenre()};${doc.getYear()}`
+            );
+            return "ok";
+        } else {
+            return `parametros incorrectos`;
+        }
+    }
+
 }

@@ -28,7 +28,7 @@ function generateId() {
   return id;
 }
 
-function addToDocs() {
+async function addToDocs() {
   let title = document.querySelector('#title').value;
   let author = document.querySelector('#author').value;
   let genre = document.querySelector('#genre').value;
@@ -40,8 +40,10 @@ function addToDocs() {
     genre: genre,
     year: year,
   };
-  docs.push(row);
-  updateDocs(docs);
+  if (await aServer(row, 'A')) {
+    docs.push(row);
+    updateDocs(docs);
+  }
 }
 
 function orderByNewest() {
@@ -118,4 +120,18 @@ function filterByAuthor() {
     doc.author.toLowerCase().includes(author.toLowerCase()),
   );
   updateDocs(filteredDocs);
+}
+async function aServer(data, action) {
+  let response;
+  switch (action) {
+    case 'A': {
+      response = await fetch('/doc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      break;
+    }
+  }
+  return (await response.text()) == 'ok';
 }
